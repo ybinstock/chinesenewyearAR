@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>Chinese New Year AR</title>
+  <meta name="description" content="Chinese New Year AR">
+  <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+<a-scene embedded arjs>
+
+  <a-assets>
+    <a-asset-item id="dog" src="/models/dog/scene.gltf"></a-asset-item>
+    <a-asset-item id="rooster" src="/rooster/scene.gltf"></a-asset-item>
+  </a-assets>
+
+
+  <a-marker preset="hiro">
+    <a-entity gltf-model-next="#rooster">
+      <a-animation attribute="rotation"
+                   dur="10000"
+                   fill="forwards"
+                   to="0 360 0"
+                   repeat="indefinite"></a-animation>
+    </a-entity>
+    
+    <!--<a-entity gltf-model-next="#dog">
+     <a-animation attribute="rotation"
+               dur="10000"
+               fill="forwards"
+               to="0 360 0"
+               repeat="indefinite"></a-animation>
+               </a-entity>-->
+
+  </a-marker>
+  <a-entity camera></a-entity>
+</a-scene>
+</body>
+</html>
